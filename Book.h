@@ -32,6 +32,12 @@ public:
     virtual void buy(int qty) = 0;
     virtual void send(const string& email, const string& address) const = 0;
     virtual bool isForSale() const = 0;
+    string getTitle() const {
+        return title;
+    }
+    string getAuthor() const {
+        return author;
+    }
 };
 
 // Derive classes from Book i.e. the paper book, ebook and the showcase book
