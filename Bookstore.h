@@ -14,6 +14,7 @@ class Bookstore {
 public:
     void addBook(Book* book) {
         inventory.push_back(book);
+        cout<< "Book added to inventory: " << book->getISBN() << endl;
     }
     void removeOutdatedBooks(int maxAge) {
         int currentYear = 2025;
@@ -27,10 +28,11 @@ public:
     }
 
     double buyBook(const string& isbn, int qty, const string& email, const string& address, bool ship) {
+        cout<<"Quantum book store: Purchasing book with ISBN " << isbn << " and quantity " << qty << endl;
         for (auto& book : inventory) {
             if (book->getISBN() == isbn && book->isForSale()) {
                 if (!book->isAvailable(qty)) {
-                    throw runtime_error("Quantum book store: Not enough stock available");
+                    throw runtime_error("Purchase Failed: Not enough stock available");
                 }
                 book->buy(qty); // deal with reducing stock
                 if (ship) {
@@ -39,7 +41,7 @@ public:
                 return book->getPrice() * qty;
             }
         }
-        throw runtime_error("Quantum book store: Book has not been found or is not for sale");
+        throw runtime_error("Purchase Failed: Book has not been found or is not for sale");
     }
 };
 
