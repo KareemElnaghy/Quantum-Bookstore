@@ -26,14 +26,16 @@ public:
         }
     }
 
-    double buyBook(const string& isbn, int qty, const string& email, const string& address) {
+    double buyBook(const string& isbn, int qty, const string& email, const string& address, bool ship) {
         for (auto& book : inventory) {
             if (book->getISBN() == isbn && book->isForSale()) {
                 if (!book->isAvailable(qty)) {
                     throw runtime_error("Quantum book store: Not enough stock available");
                 }
                 book->buy(qty); // deal with reducing stock
-                book->send(email, address); // deal with shipping (not implemented)
+                if (ship) {
+                    book->send(email, address); // deal with shipping if customer would like shipping (not implemented)
+                }
                 return book->getPrice() * qty;
             }
         }

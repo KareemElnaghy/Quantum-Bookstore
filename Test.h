@@ -21,14 +21,14 @@ public:
 
         // Test: Buying Paper Book
         try {
-            double amountPaid = store.buyBook("ISBN1", 2, "kareemelnaghy@aucegypt.edu", "Maadi, Cairo, Egypt");
+            double amountPaid = store.buyBook("ISBN1", 2, "kareemelnaghy@aucegypt.edu", "Maadi, Cairo, Egypt", 1);
             cout << "Quantum book store: Paid amount is " << amountPaid << endl;
         } catch (exception& e) {
             cout << e.what() << endl;
         }
 
         try {
-            double amountPaid = store.buyBook("ISBN4", 2, "kareemelnaghy@aucegypt.edu", "Maadi, Cairo, Egypt");
+            double amountPaid = store.buyBook("ISBN4", 2, "kareemelnaghy@aucegypt.edu", "Maadi, Cairo, Egypt", 1);
             cout << "Quantum book store: Paid amount is " << amountPaid << endl;
         } catch (exception& e) {
             cout << e.what() << endl;
@@ -36,14 +36,14 @@ public:
 
         // Test: Buying EBook
         try {
-            double amountPaid = store.buyBook("ISBN2", 1, "johndoe@gmail.com", "");
+            double amountPaid = store.buyBook("ISBN2", 1, "johndoe@gmail.com", "", 1);
             cout << "Quantum book store: Paid amount = " << amountPaid << endl;
         } catch (exception& e) {
             cout << e.what() << endl;
         }
 
         try {
-            double amountPaid = store.buyBook("ISBN3", 1, "charleslec@hotmail.com", "");
+            double amountPaid = store.buyBook("ISBN3", 1, "charleslec@hotmail.com", "", 1);
             cout << "Quantum book store: Paid = " << amountPaid << endl;
         }
         catch (exception& e) {
